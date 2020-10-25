@@ -41,24 +41,22 @@ export GOROOT=${work_dir}/go
 go version
 
 # Build the service
-pushd ${CONTEXT_DIR}/cmd/test-server
+pushd ${CONTEXT_DIR}/cmd/figleted-fortune-cadence-worker
   git rev-parse HEAD > ${work_dir}/git_sha
   go build
 
   # TODO no longer place this in such a global location after creating better chroots with Nomad
-  sudo mv test-server /usr/bin/figleted-fortune-cadence-worker
+  sudo mv figleted-fortune-cadence-worker /usr/bin/figleted-fortune-cadence-worker
 popd
 
 # Clone, checkout, and deploy our dependencies
 git clone git@github.com:calebamiles/example-fortune-service ${work_dir}/fortune-service-git
 pushd ${work_dir}/fortune-service-git
-  git checkout v0.0.4
   CONTEXT_DIR=${work_dir}/fortune-service-git ./scripts/vagrant/deploy.sh
 popd
 
 git clone git@github.com:calebamiles/example-figlet-service ${work_dir}/figlet-service-git
 pushd ${work_dir}/figlet-service-git
-  git checkout v0.0.4
   CONTEXT_DIR=${work_dir}/figlet-service-git ./scripts/vagrant/deploy.sh
 popd
 
