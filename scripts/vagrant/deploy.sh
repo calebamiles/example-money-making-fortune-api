@@ -50,15 +50,16 @@ pushd ${CONTEXT_DIR}/cmd/figleted-fortune-cadence-worker
 popd
 
 # Clone, checkout, and deploy our dependencies
-git clone git@github.com:calebamiles/example-fortune-service ${work_dir}/fortune-service-git
+git clone git@github.com:hashicorp/example-fortune-cadence-service ${work_dir}/fortune-service-git
 pushd ${work_dir}/fortune-service-git
   git fetch origin
   git checkout search-harder-for-fortune
   CONTEXT_DIR=${work_dir}/fortune-service-git ./scripts/vagrant/deploy.sh
 popd
 
-git clone git@github.com:calebamiles/example-figlet-service ${work_dir}/figlet-service-git
+git clone git@github.com:hashicorp/example-figlet-cadence-service ${work_dir}/figlet-service-git
 pushd ${work_dir}/figlet-service-git
+  git fetch origin
   CONTEXT_DIR=${work_dir}/figlet-service-git ./scripts/vagrant/deploy.sh
 popd
 
