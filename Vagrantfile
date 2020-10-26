@@ -22,6 +22,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder ".", "/vagrant"
 
+  config.vm.network "forwarded_port", guest: 8090, host: 8090, id: "example-fortune-service"
+  config.vm.network "forwarded_port", guest: 8091, host: 8091, id: "example-figleted-service"
   config.vm.network "forwarded_port", guest: 8092, host: 8092, id: "example-figleted-fortune-service"
   config.vm.provision "shell", path: "scripts/vagrant/deploy.sh", privileged: false
 
