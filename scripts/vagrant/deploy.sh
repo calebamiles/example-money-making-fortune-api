@@ -52,6 +52,8 @@ popd
 # Clone, checkout, and deploy our dependencies
 git clone git@github.com:calebamiles/example-fortune-service ${work_dir}/fortune-service-git
 pushd ${work_dir}/fortune-service-git
+  git fetch origin
+  git checkout search-harder-for-fortune
   CONTEXT_DIR=${work_dir}/fortune-service-git ./scripts/vagrant/deploy.sh
 popd
 
