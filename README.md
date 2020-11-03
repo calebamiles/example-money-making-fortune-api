@@ -9,7 +9,10 @@ This is the real deal folks: an API for _fortune_ but as a Figlet! This is gonna
 
 ## Local Development
 
+1. Ensure that [Vagrant Synced Folders][] is configured properly
 1. `export VAULT_BOOTSTRAP_TOKEN=get-this-from-1Password`
 1. `vagrant up`
+
+[Vagrant Synced Folders]: https://www.vagrantup.com/docs/synced-folders
 
 
