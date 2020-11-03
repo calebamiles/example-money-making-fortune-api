@@ -53,13 +53,16 @@ popd
 git clone git@github.com:hashicorp/example-fortune-cadence-service ${work_dir}/fortune-service-git
 pushd ${work_dir}/fortune-service-git
   git fetch origin
-  git checkout search-harder-for-fortune
+  git checkout v0.0.2-hashicorp
+
   CONTEXT_DIR=${work_dir}/fortune-service-git ./scripts/vagrant/deploy.sh
 popd
 
 git clone git@github.com:hashicorp/example-figlet-cadence-service ${work_dir}/figlet-service-git
 pushd ${work_dir}/figlet-service-git
   git fetch origin
+  git checkout v0.0.2-hashicorp
+
   CONTEXT_DIR=${work_dir}/figlet-service-git ./scripts/vagrant/deploy.sh
 popd
 
